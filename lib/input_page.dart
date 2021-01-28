@@ -1,5 +1,7 @@
+import 'package:BMICalculator/gender_card.dart';
 import 'package:BMICalculator/reusablecard.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerHeight = 80.0;
 const cardBackgroundColor = Color(0xFF1D1E33);
@@ -24,11 +26,19 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: cardBackgroundColor,
+                    cardChild: GenderCard(
+                      genderIcon: FontAwesomeIcons.mars,
+                      text: "MALE",
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     colour: cardBackgroundColor,
+                    cardChild: GenderCard(
+                      genderIcon: FontAwesomeIcons.venus,
+                      text: "FEMALE",
+                    ),
                   ),
                 ),
               ],
