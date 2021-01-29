@@ -2,11 +2,7 @@ import 'package:BMICalculator/gender_card.dart';
 import 'package:BMICalculator/reusablecard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-const bottomContainerHeight = 80.0;
-const cardBackgroundColor = Color(0xFF1D1E33);
-const activeCardColor = Color(0xFF1D1E33);
-const inActiveCardColor = Color(0xFF111328);
+import 'constants.dart';
 
 enum Gender {
   female,
@@ -21,7 +17,9 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Color maleCardColor = inActiveCardColor;
   Color femaleCardColor = inActiveCardColor;
+
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +73,36 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: cardBackgroundColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "HEIGHT",
+                          style: labelTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          children: [
+                            Text(height.toString(), style: numberTextStyle),
+                            Text(
+                              "cm",
+                              style: labelTextStyle,
+                            )
+                          ],
+                        ),
+                        Slider(
+                          value: height.toDouble(),
+                          max: 220.0,
+                          min: 120.0,
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
