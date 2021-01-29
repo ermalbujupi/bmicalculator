@@ -35,39 +35,35 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    child: ReusableCard(
-                      colour: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild: GenderCard(
-                        genderIcon: FontAwesomeIcons.mars,
-                        text: "MALE",
-                      ),
-                    ),
-                    onTap: () {
+                  child: ReusableCard(
+                    tapFunction: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
+                    colour: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: GenderCard(
+                      genderIcon: FontAwesomeIcons.mars,
+                      text: "MALE",
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    child: ReusableCard(
-                      colour: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild: GenderCard(
-                        genderIcon: FontAwesomeIcons.venus,
-                        text: "FEMALE",
-                      ),
-                    ),
-                    onTap: () {
+                  child: ReusableCard(
+                    tapFunction: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
+                    colour: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: GenderCard(
+                      genderIcon: FontAwesomeIcons.venus,
+                      text: "FEMALE",
+                    ),
                   ),
                 ),
               ],
