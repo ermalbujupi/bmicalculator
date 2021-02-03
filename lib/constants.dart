@@ -11,3 +11,20 @@ const labelTextStyle = TextStyle(
 );
 
 const numberTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
+
+const titleTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold);
+
+const resultTextStyle = TextStyle(
+  color: Color(0xFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const BMITextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+const bodyTextStyle = TextStyle(
+  fontSize: 22.0,
+);
