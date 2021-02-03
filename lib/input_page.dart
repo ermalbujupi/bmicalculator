@@ -3,6 +3,7 @@ import 'package:BMICalculator/results_page.dart';
 import 'package:BMICalculator/reusablecard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'calculator.dart';
 
 import 'constants.dart';
 
@@ -216,8 +217,16 @@ class _InputPageState extends State<InputPage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
+              BMICalculator calc =
+                  BMICalculator(height: height, weight: weight);
+
+              ResultsPage results = ResultsPage(
+                  bmiResult: calc.calculateBMI(),
+                  resultText: calc.getResults(),
+                  interpretation: calc.getInterpretation());
+
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => results));
             },
             child: Container(
               color: Color(0xFFEB1555),

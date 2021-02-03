@@ -3,6 +3,16 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class ResultsPage extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  ResultsPage({
+    @required this.bmiResult,
+    @required this.resultText,
+    @required this.interpretation,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,15 +38,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "Normal",
+                    resultText,
                     style: resultTextStyle,
                   ),
                   Text(
-                    "18.3",
+                    bmiResult,
                     style: BMITextStyle,
                   ),
                   Text(
-                    "BMI Results",
+                    interpretation,
                     style: bodyTextStyle,
                   ),
                   GestureDetector(
@@ -45,7 +55,6 @@ class ResultsPage extends StatelessWidget {
                     },
                     child: Container(
                       color: Color(0xFFEB1555),
-                      margin: EdgeInsets.only(top: 10.0),
                       width: double.infinity,
                       height: bottomContainerHeight,
                       child: Center(
